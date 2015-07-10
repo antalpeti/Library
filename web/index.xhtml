@@ -5,16 +5,19 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Library</title>
+        <link rel="stylesheet" href="#{request.contextPath}/styles/pages.css" type="text/css"/>
     </h:head>
     <h:form>
-        <table>
+        <table class="controlTable">
             <tr>
-                <td>
-                    <h:commandButton  value="Selected books"/>
+                <td class="controlNavigation">
+                    <h:commandButton styleClass="alignleft" value="Selected books"/>
                 </td>
             </tr>
         </table>
-        <h:dataTable value="#{bookList.bookList}" var="book">
+        <h:dataTable styleClass="bookTable" headerClass="bookTableHeader" 
+                     rowClasses="bookTableOddRow,bookTableEvenRow" 
+                     value="#{bookList.bookList}" var="book">
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="Author"/>

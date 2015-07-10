@@ -1,0 +1,78 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 05-Jul-2015, 19:02:40
+    Author     : Peti
+*/
+.alignleft {
+    text-align: left;
+}
+.alignright {
+    text-align: right;
+}
+
+.bookTable {
+    width: 50%;
+    border-collapse:collapse;
+    border:1px solid #000000;
+}
+
+.bookTableHeader{
+    text-align:center;
+    background:none repeat scroll 0 0 #B5B5B5;
+    border-bottom:1px solid #000000;  
+    padding:2px;
+}
+
+.bookTableOddRow{
+    text-align:center;
+    background:none repeat scroll 0 0 #FFFFFF;	
+}
+
+.bookTableEvenRow{
+    text-align:center;
+    background:none repeat scroll 0 0 #D3D3D3;
+}
+
+.lendTable {
+    width: 50%;
+    border-collapse:collapse;
+    border:1px solid #000000;
+}
+
+.lendTableHeader{
+    text-align:center;
+    background:none repeat scroll 0 0 #E5E5E5;
+    border-bottom:1px solid #000000;  
+    padding:2px;
+}
+
+.lendTableFooter{
+    text-align:center;
+    font-weight: bold;
+    background:none repeat scroll 0 0 #A5A5A5;
+    border-bottom:1px solid #000000;  
+    padding:2px;
+}
+
+.lendTableOddRow{
+    text-align:center;
+    background:none repeat scroll 0 0 #FFFFFF;	
+}
+
+.lendTableEvenRow{
+    text-align:center;
+    background:none repeat scroll 0 0 #E3E3E3;
+}
+
+.controlTable{
+    width: 50%;
+}
+
+.controlNavigation{
+    width: 25%;
+    text-align: left;
+}
