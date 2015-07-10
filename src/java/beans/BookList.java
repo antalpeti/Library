@@ -27,7 +27,7 @@ public class BookList {
      */
     public BookList() {
         Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
-        bookList = session.createQuery("FROM Book").list();
+        bookList = session.createQuery("FROM Book WHERE memberid IS NULL").list();
         session.close();
     }
 
