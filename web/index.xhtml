@@ -4,14 +4,14 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Library</title>
+        <title>Available books</title>
         <link rel="stylesheet" href="#{request.contextPath}/styles/pages.css" type="text/css"/>
     </h:head>
     <h:form>
         <table class="controlTable">
             <tr>
                 <td class="controlNavigation">
-                    <h:commandButton styleClass="alignleft" value="Selected books"/>
+                    <h:commandButton styleClass="alignleft" value="Selected books" action="index2lend"/>
                 </td>
             </tr>
         </table>
@@ -40,7 +40,7 @@
                 <f:facet name="header">
                     <h:outputText value="Lending"/>
                 </f:facet>
-                <h:commandButton value="Lend"/>
+                <h:commandButton value="Lend" action="#{lend.put(book)}"/>
             </h:column>
         </h:dataTable>
     </h:form>
