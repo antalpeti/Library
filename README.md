@@ -4,10 +4,10 @@ Java --- Netbeans IDE
 Features:
 
 1. General
-  * Connect to a MySQL database
+  * Connect to a MySQL database *OK*
 2. Index page
-  * List the available books
-  * Every record has a Lend button
+  * List the available books *OK*
+  * Every record has a Add button *OK*
 3. New Book page
   * Add new book to the database
   * Fields for the Author, Title and Pages
