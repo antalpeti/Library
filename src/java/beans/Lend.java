@@ -39,7 +39,9 @@ public class Lend {
     }
 
     public String put(Book book) {
-        lendList.add(book);
+        if (!lendList.contains(book)) {
+            lendList.add(book);
+        }
 
         return "index2lend";
     }
