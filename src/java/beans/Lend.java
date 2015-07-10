@@ -45,7 +45,11 @@ public class Lend {
 
         return "index2lend";
     }
-
+    
+    public void remove(Book book) {
+        lendList.remove(book);
+    }
+    
     public List<Book> getLendList() {
         return lendList;
     }
