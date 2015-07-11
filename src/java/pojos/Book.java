@@ -52,7 +52,7 @@ public class Book implements java.io.Serializable {
         this.id = id;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "memberid")
     public Member getMember() {
         return this.member;
