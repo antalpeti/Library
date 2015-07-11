@@ -20,5 +20,5 @@ Features:
   * Show member list in a oombo box *OK*
   * Render books to a member
 6. Borrowed page
-  * List the borrowed books
-  * Every record has a Return button
+  * List the borrowed books *OK*
+  * Every record has a Back button 
