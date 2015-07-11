@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import org.hibernate.Session;
+import pojos.Book;
 import pojos.Member;
 
 /**
@@ -20,6 +21,7 @@ import pojos.Member;
 public class Register {
 
     private Member member;
+    private Book  book;
     private String error = "";
     
     @ManagedProperty(value="#{lend}")
@@ -30,6 +32,7 @@ public class Register {
      */
     public Register() {
         member = new Member();
+        book = new Book();
     }
     
     public String registerNewMember(){
@@ -43,6 +46,21 @@ public class Register {
             return "memberregister2lend";
         } else {
             error = "Fill the name and email fields!";
+            return "";
+        }
+    }
+    
+    public String registerNewBook(){
+        if (book.getAuthor() != null && !book.getAuthor().isEmpty() && book.getTitle()!= null && !book.getTitle().isEmpty() && 
+                book.getPages() != 0) {
+            Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.save(book);
+            session.getTransaction().commit();
+            session.close();
+            return "bookregister2index";
+        } else {
+            error = "Fill the author, title and pages fields!";
             return "";
         }
     }
@@ -69,5 +87,13 @@ public class Register {
 
     public void setLend(Lend lend) {
         this.lend = lend;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 }

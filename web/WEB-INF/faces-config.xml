@@ -13,6 +13,10 @@
             <from-outcome>index2back</from-outcome>
             <to-view-id>/back.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>index2bookregister</from-outcome>
+            <to-view-id>/bookregister.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/lend.xhtml</from-view-id>
@@ -37,6 +41,13 @@
         <navigation-case>
             <from-outcome>memberregister2lend</from-outcome>
             <to-view-id>/lend.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/bookregister.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>bookregister2index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
