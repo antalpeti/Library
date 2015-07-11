@@ -48,12 +48,12 @@ public class Lend {
 
         return "index2lend";
     }
-    
+
     public void remove(Book book) {
         lendList.remove(book);
     }
-    
-    public void selectMember(){
+
+    public void selectMember() {
         for (Member member : memberList) {
             if (actMemberId == member.getId()) {
                 actMember = member;
@@ -62,7 +62,23 @@ public class Lend {
         }
         actMemberText = "Selected member: " + actMember;
     }
-       
+
+    public void lend() {
+        if (actMember != null) {
+            Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            for (Book book : lendList) {
+                book.setMember(actMember);
+                session.save(book);
+            }
+            session.getTransaction().commit();
+            session.close();
+            lendList.clear();
+        } else {
+            actMemberText = "Select a member!!!";
+        }
+    }
+
     public List<Book> getLendList() {
         return lendList;
     }
