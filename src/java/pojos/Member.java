@@ -101,6 +101,6 @@ public class Member implements java.io.Serializable {
 
     @Override
     public String toString() {
-        return "Member{" + "id=" + id + ", name=" + name + ", email=" + email + '}';
+        return "id=" + id + ", name=" + name + ", email=" + email;
     }
 }

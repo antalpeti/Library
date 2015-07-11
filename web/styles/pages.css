@@ -76,3 +76,18 @@ and open the template in the editor.
     width: 25%;
     text-align: left;
 }
+
+.controlSearchCombo{
+    width: 25%;
+    text-align: right;
+}
+
+.controlSelectButton{
+    width: 10%;
+    text-align: left;
+}
+
+.controlSelectText{
+    width: 40%;
+    text-align: center;
+}

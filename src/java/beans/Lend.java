@@ -23,6 +23,9 @@ public class Lend {
 
     private List<Book> lendList;
     private List<Member> memberList;
+    private int actMemberId;
+    private Member actMember;
+    private String actMemberText = "";
 
     /**
      * Creates a new instance of Lend
@@ -50,6 +53,16 @@ public class Lend {
         lendList.remove(book);
     }
     
+    public void selectMember(){
+        for (Member member : memberList) {
+            if (actMemberId == member.getId()) {
+                actMember = member;
+                break;
+            }
+        }
+        actMemberText = "Selected member: " + actMember;
+    }
+       
     public List<Book> getLendList() {
         return lendList;
     }
@@ -66,4 +79,19 @@ public class Lend {
         this.memberList = memberList;
     }
 
+    public String getActMemberText() {
+        return actMemberText;
+    }
+
+    public void setActMemberText(String actMemberText) {
+        this.actMemberText = actMemberText;
+    }
+
+    public int getActMemberId() {
+        return actMemberId;
+    }
+
+    public void setActMemberId(int actMemberId) {
+        this.actMemberId = actMemberId;
+    }
 }

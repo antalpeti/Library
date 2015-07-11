@@ -14,6 +14,17 @@
                     <td class="controlNavigation">
                         <h:commandButton styleClass="alignleft" value="Back to the available books" action="lend2index"/>
                     </td>
+                    <td class="controlSelectText">
+                        <h:outputText value="#{lend.actMemberText}"/>
+                    </td>
+                    <td class="controlSearchCombo">
+                        <h:selectOneMenu value="#{lend.actMemberId}">
+                            <f:selectItems value="#{lend.memberList}" var="mem" itemLabel="#{mem.email} - #{mem.name}" itemValue="#{mem.id}" />
+                        </h:selectOneMenu>
+                    </td>
+                    <td class="controlSelectButton">
+                        <h:commandButton value="Select" action="#{lend.selectMember()}"/>
+                    </td>
                 </tr>
             </table>
             <h:dataTable styleClass="lendTable" headerClass="lendTableHeader"

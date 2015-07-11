@@ -113,6 +113,6 @@ public class Book implements java.io.Serializable {
 
     @Override
     public String toString() {
-        return "Book{" + "id=" + id + ", author=" + author + ", title=" + title + ", pages=" + pages + '}';
+        return "id=" + id + ", author=" + author + ", title=" + title + ", pages=" + pages;
     }
 }
