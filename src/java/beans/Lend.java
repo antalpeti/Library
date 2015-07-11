@@ -48,7 +48,7 @@ public class Lend {
 
         return "index2lend";
     }
-
+    
     public void remove(Book book) {
         lendList.remove(book);
     }
@@ -69,7 +69,7 @@ public class Lend {
             session.beginTransaction();
             for (Book book : lendList) {
                 book.setMember(actMember);
-                session.save(book);
+                session.update(book);
             }
             session.getTransaction().commit();
             session.close();
