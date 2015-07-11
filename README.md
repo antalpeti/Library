@@ -15,8 +15,10 @@ Features:
   * Add new member to the database
   * Field for the Name and Email
 5. Lend page
-  * Render a book to a member
-  * Show member in a oombobox
+  * Show the selected books *OK*
+  * Remove button to every row *OK*
+  * Show member list in a oombo box *OK*
+  * Render books to a member
 6. Borrowed page
   * List the borrowed books
   * Every record has a Return button
