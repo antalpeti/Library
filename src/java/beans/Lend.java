@@ -35,7 +35,7 @@ public class Lend {
         fillMember();
     }
 
-    private void fillMember() {
+    public void fillMember() {
         Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
         memberList = session.createQuery("FROM Member").list();
         session.close();
