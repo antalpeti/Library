@@ -32,7 +32,7 @@ public class Register {
         member = new Member();
     }
     
-    public String register(){
+    public String registerNewMember(){
         if (member.getName() != null && !member.getName().isEmpty() && member.getEmail()!= null && !member.getEmail().isEmpty()) {
             Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
@@ -40,13 +40,13 @@ public class Register {
             session.getTransaction().commit();
             session.close();
             lend.fillMember();
-            return "register2lend";
+            return "memberregister2lend";
         } else {
             error = "Fill the name and email fields!";
             return "";
         }
     }
-
+    
     public Member getMember() {
         return member;
     }
