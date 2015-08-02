@@ -8,6 +8,7 @@ package beans;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import org.hibernate.Session;
 import pojos.Book;
@@ -27,6 +28,9 @@ public class Lend {
     private Member actMember;
     private String actMemberText = "";
 
+    @ManagedProperty(value = "#{bookList}")
+    private BookList bookList;
+
     /**
      * Creates a new instance of Lend
      */
@@ -42,14 +46,16 @@ public class Lend {
     }
 
     public String put(Book book) {
-        if (!lendList.contains(book)) {
-            lendList.add(book);
-        }
+        lendList.add(book);
+        bookList.getBookList().remove(book);
+        book.setAvailable(false);
 
         return "index2lend";
     }
-    
+
     public void remove(Book book) {
+        book.setAvailable(true);
+        bookList.getBookList().add(book);
         lendList.remove(book);
     }
 
@@ -109,5 +115,13 @@ public class Lend {
 
     public void setActMemberId(int actMemberId) {
         this.actMemberId = actMemberId;
+    }
+
+    public BookList getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(BookList bookList) {
+        this.bookList = bookList;
     }
 }

@@ -8,7 +8,7 @@ package beans;
 
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import org.hibernate.Session;
 import pojos.Book;
 
@@ -17,7 +17,7 @@ import pojos.Book;
  * @author Peti
  */
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class BookList {
     
     private List<Book> bookList;
@@ -26,8 +26,12 @@ public class BookList {
      * Creates a new instance of BookList
      */
     public BookList() {
+        fillBook();
+    }
+    
+    public void fillBook(){
         Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
-        bookList = session.createQuery("FROM Book WHERE memberid IS NULL").list();
+        bookList = session.createQuery("FROM Book WHERE available = 1").list();
         session.close();
     }
 

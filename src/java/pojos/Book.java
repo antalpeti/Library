@@ -1,5 +1,5 @@
 package pojos;
-// Generated 10-Jul-2015 00:28:40 by Hibernate Tools 3.6.0
+// Generated 11-Jul-2015 06:48:47 by Hibernate Tools 3.6.0
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,6 +24,7 @@ public class Book implements java.io.Serializable {
     private String author;
     private String title;
     private int pages;
+    private Boolean available;
 
     public Book() {
     }
@@ -35,12 +36,13 @@ public class Book implements java.io.Serializable {
         this.pages = pages;
     }
 
-    public Book(int id, Member member, String author, String title, int pages) {
+    public Book(int id, Member member, String author, String title, int pages, Boolean available) {
         this.id = id;
         this.member = member;
         this.author = author;
         this.title = title;
         this.pages = pages;
+        this.available = available;
     }
 
     @Id
@@ -93,7 +95,16 @@ public class Book implements java.io.Serializable {
         this.pages = pages;
     }
 
-    @Override
+    @Column(name = "available")
+    public Boolean getAvailable() {
+        return this.available;
+    }
+
+    public void setAvailable(Boolean available) {
+        this.available = available;
+    }
+
+        @Override
     public int hashCode() {
         int hash = 5;
         hash = 29 * hash + this.id;
