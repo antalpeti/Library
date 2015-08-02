@@ -7,8 +7,8 @@ package beans;
 
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import pojos.Book;
 
@@ -22,20 +22,26 @@ public class BackList {
 
     private List<Book> backList;
 
+    @ManagedProperty(value = "#{bookList}")
+    private BookList bookList;
+
     /**
      * Creates a new instance of BookList
      */
     public BackList() {
         Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
-        backList = session.createQuery("FROM Book WHERE memberid IS NOT NULL").list();
+        backList = session.createQuery("FROM Book WHERE available = 0").list();
         session.close();
     }
 
     public void back(Book book) {
         Session session = hibernate.HibernateUtil.getSessionFactory().openSession();
-        book.setMember(null);
-        System.out.println(book + " member id = " + book.getMember());
+        session.beginTransaction();
+        book.setAvailable(true);
         session.update(book);
+        session.getTransaction().commit();
+        backList.remove(book);
+        bookList.getBookList().add(book);
         session.close();
     }
 
@@ -45,5 +51,13 @@ public class BackList {
 
     public void setBackList(List<Book> backList) {
         this.backList = backList;
+    }
+
+    public BookList getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(BookList bookList) {
+        this.bookList = bookList;
     }
 }

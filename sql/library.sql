@@ -30,6 +30,7 @@ CREATE TABLE `book` (
   `title` varchar(45) NOT NULL,
   `pages` int(11) NOT NULL,
   `memberid` int(11) DEFAULT NULL,
+  `available` TINYINT(1) NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   KEY `memberid_idx` (`memberid`),
   CONSTRAINT `memberid` FOREIGN KEY (`memberid`) REFERENCES `member` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -42,7 +43,7 @@ CREATE TABLE `book` (
 
 LOCK TABLES `book` WRITE;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES (1,'J. K. Rowling','Harry Potter and the Philosopher\'s Stone',223,NULL),(2,'J. K. Rowling','Harry Potter and the Chamber of Secrets',251,NULL),(3,'J. K. Rowling','Harry Potter and the Prisoner of Azkaban',317,NULL),(4,'J. K. Rowling','Harry Potter and the Goblet of Fire',636,NULL),(5,'J. K. Rowling','Harry Potter and the Order of the Phoenix',766,NULL),(6,'J. K. Rowling','Harry Potter and the Half-Blood Prince',607,NULL),(7,'J. K. Rowling','Harry Potter and the Deathly Hallows',607,NULL),(8,'George R. R. Martin','A Game of Thrones',864,NULL),(9,'George R. R. Martin','A Clash of Kings',931,NULL),(10,'George R. R. Martin','A Storm of Swords',625,NULL),(11,'George R. R. Martin','A Feast for Crows',865,NULL),(12,'George R. R. Martin','A Dance with Dragons',1154,NULL);
+INSERT INTO `book` VALUES (1,'J. K. Rowling','Harry Potter and the Philosopher\'s Stone',223,NULL,1),(2,'J. K. Rowling','Harry Potter and the Chamber of Secrets',251,NULL,1),(3,'J. K. Rowling','Harry Potter and the Prisoner of Azkaban',317,NULL,1),(4,'J. K. Rowling','Harry Potter and the Goblet of Fire',636,NULL,1),(5,'J. K. Rowling','Harry Potter and the Order of the Phoenix',766,NULL,1),(6,'J. K. Rowling','Harry Potter and the Half-Blood Prince',607,NULL,1),(7,'J. K. Rowling','Harry Potter and the Deathly Hallows',607,NULL,1),(8,'George R. R. Martin','A Game of Thrones',864,NULL,1),(9,'George R. R. Martin','A Clash of Kings',931,NULL,1),(10,'George R. R. Martin','A Storm of Swords',625,NULL,1),(11,'George R. R. Martin','A Feast for Crows',865,NULL,1),(12,'George R. R. Martin','A Dance with Dragons',1154,NULL,1);
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
 
